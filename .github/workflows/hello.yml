@@ -1,4 +1,4 @@
-name: Simple NodeJs
+name: Hellow world using Node Js
 on: push
 jobs:
   first-job:
