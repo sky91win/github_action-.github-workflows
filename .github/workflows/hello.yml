@@ -1,12 +1,12 @@
 name: Simple NodeJs
 on: push
 jobs:
-  first-job_new:
+  first-job:
     runs-on: ubuntu-latest
     name:  node:20
     steps:
       - run: node --version
       - run: npm -version
       - uses: actions/checkout@v3
-      - run: npm install
+      - run: install npm
       - run: node app.js
