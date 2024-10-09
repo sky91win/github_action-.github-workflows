@@ -8,6 +8,5 @@ jobs:
       - run: node --version
       - run: npm -version
       - uses: actions/checkout@v3
-      - run: npm install express
-      - run: npm install jest supertest --save-dev
+      - run: npm install
       - run: node app.js
