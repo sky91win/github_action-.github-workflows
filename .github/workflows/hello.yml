@@ -1,4 +1,4 @@
-name: Simple NodeJs
+name: Simple NodeJs new
 on: push
 jobs:
   first-job:
