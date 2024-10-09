@@ -1,10 +1,9 @@
-name: hello-world
+name: Simple NodeJs
 on: push
 jobs:
-  my-job:
+  first-job:
     runs-on: ubuntu-latest
+    Container: node:14
     steps:
-      - name: my-step
-        run: echo "Hello World yet!"
-      - name: My step2
-        run: echo "hi hello"
+      - run: node --version
+      - run: npm -version
