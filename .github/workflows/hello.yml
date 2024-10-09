@@ -8,5 +8,5 @@ jobs:
       - run: node --version
       - run: npm -version
       - uses: actions/checkout@v3
-      - run: npm ci
+      - run: install with npm@5
       - run: node app.js
