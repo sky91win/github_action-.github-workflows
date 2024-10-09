@@ -3,9 +3,7 @@ on: push
 jobs:
   first-job:
     runs-on: ubuntu-latest
-    runs:
-    using: 'node20'
-    main: 'main.js'
+    name:  node:20
     steps:
       - run: node --version
       - run: npm -version
