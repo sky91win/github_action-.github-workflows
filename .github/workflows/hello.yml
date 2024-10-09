@@ -1,7 +1,7 @@
 name: Simple NodeJs
 on: push
 jobs:
-  first-job:
+  first-job_new:
     runs-on: ubuntu-latest
     name:  node:20
     steps:
