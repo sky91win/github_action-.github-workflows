@@ -7,4 +7,4 @@ jobs:
       - name: my-step
         run: echo "Hello World yet!"
       - name: My step2
-        run: echo "hi"
+        run: echo "hi hello"
