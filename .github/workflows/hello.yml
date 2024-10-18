@@ -1,14 +1,18 @@
-name: Hellow world using Node Js
+name: Publish artificats to GitHub Packages
 on: push
 jobs:
-  first-job:
+  publish:
     runs-on: ubuntu-latest
-    name:  node:20
+    permissions:
+      contents: read
+      packages: write
     steps:
-      - run: node --version
-      - run: npm -version
       - uses: actions/checkout@v3
-      - run: npm install express
-      - run: npm install jest supertest --save-dev
-      - run: npm install moment --save
-      - run: node app.js
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+      - name: Publish package
+        run: mvn --batch-mode deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
