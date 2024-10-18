@@ -12,5 +12,4 @@ jobs:
       - run: npm install jest supertest --save-dev
       - run: npm install moment --save
       - run: node app.js
-   env:
-          GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}    
+      
