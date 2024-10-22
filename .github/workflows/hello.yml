@@ -15,6 +15,6 @@
         - run: node app.js
           env: 
             first_name: RAJU
-        - run: echo "$first_name with project ${{ vars.PROJECT_ID }}!"     
+        - run: echo "$first_name with project ${{ vars.OK123 }}!"     
   
   
