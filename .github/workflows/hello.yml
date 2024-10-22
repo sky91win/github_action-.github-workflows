@@ -2,7 +2,7 @@
   name: Hellow world using Node Js1
   on: push
   env:
-    cloud: ${{ vars.PROJECT_ID }}
+    cloud: ${ vars.PROJECT_ID }
   jobs:
     first-job:
       runs-on: ubuntu-latest
