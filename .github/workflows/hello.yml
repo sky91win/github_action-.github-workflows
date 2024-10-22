@@ -23,6 +23,7 @@ jobs:
     - run: npm install express
     - run: npm install jest supertest --save-dev
     - run: npm install moment --save
+    - run: node app.js
 
     - name: Run tests
       run: npm test
