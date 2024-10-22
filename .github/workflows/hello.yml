@@ -16,7 +16,7 @@
         - run: npm install moment --save
         - run: node app.js
           run: echo "$First_Name is using $cloud with project ${{ vars.PROJECT_ID }}!"
-        env:
+     env:
           First_Name: RAJU
             
   
