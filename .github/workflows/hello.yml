@@ -12,7 +12,8 @@
         - run: npm install express
         - run: npm install jest supertest --save-dev
         - run: npm install moment --save
-        - run: node app.js
-  env:
-    GITHUB_TOKEN: ${{ secrets.key }}
+        - run: node app.js $first_name with project ${{var.PROJECT_ID}}
+          env: 
+            first_name: RAJU     
+  
   
