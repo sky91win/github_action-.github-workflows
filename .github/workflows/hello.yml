@@ -1,31 +1,15 @@
-name: Node.js CI
-
-on: [push]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16, 20]
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-
-    #- name: Install dependencies
-    - run: npm install express
-    - run: npm install jest supertest --save-dev
-    - run: npm install moment --save
-    - run: node app.js
-
-    - name: Run tests
-      run: npm test
-      env:
-        NODE_ENV: development
+---
+  name: Hellow world using Node Js1
+  on: push
+  jobs:
+    first-job:
+      runs-on: ubuntu-latest
+      name: node:20
+      steps:
+        - run: node --version
+        - run: npm -version
+        - uses: actions/checkout@v3
+        - run: npm install express
+        - run: npm install jest supertest --save-dev
+        - run: npm install moment --save
+        - run: node app.js
