@@ -1,6 +1,8 @@
 ---
   name: Hellow world using Node Js1
   on: push
+  env:
+    cloud: GCP
   jobs:
     first-job:
       runs-on: ubuntu-latest
@@ -12,9 +14,10 @@
         - run: npm install express
         - run: npm install jest supertest --save-dev
         - run: npm install moment --save
-        - run: node app.js echo "$first_name with project ${{ vars.OK123 }}!
-          env: 
-            first_name: RAJU
+        - run: node app.js
+          run: echo "$First_Name is using $cloud with project ${{ vars.PROJECT_ID }}!"
+        env:
+          First_Name: RAJU
             
   
   
