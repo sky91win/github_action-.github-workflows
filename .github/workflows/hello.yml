@@ -12,9 +12,9 @@
         - run: npm install express
         - run: npm install jest supertest --save-dev
         - run: npm install moment --save
-        - run: node app.js
+        - run: node app.js echo "$first_name with project ${{ vars.OK123 }}!
           env: 
             first_name: RAJU
-        - run: echo "$first_name with project ${{ vars.OK123 }}!"     
+            
   
   
