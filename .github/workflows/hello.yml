@@ -1,6 +1,7 @@
 name: Node.js CI
 
-on: [push]
+on:
+  push
 
 jobs:
   build:
@@ -8,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: node:20
+        node-version: [16, 20]
 
     steps:
     - name: Checkout code
