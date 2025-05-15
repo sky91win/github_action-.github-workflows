@@ -1,0 +1,44 @@
+name: "Run Coverity Scan"
+description: "Composite action to run Coverity scan during platform build"
+inputs:
+  token:
+    description: "Coverity authentication token"
+    required: true
+  project:
+    description: "Coverity project name"
+    required: true
+  stream:
+    description: "Coverity stream name"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Coverity Scan Tool
+      run: |
+        mkdir -p coverity
+        wget https://scan.coverity.com/download/linux64 --post-data "token=${{ inputs.token }}&project=${{ inputs.project }}" -O coverity_tool.tgz
+        tar -xvzf coverity_tool.tgz -C coverity --strip-components=1
+      shell: bash
+
+    - name: Run Coverity Build
+      run: |
+        ./coverity/bin/cov-build --dir cov-int make  # Adjust 'make' to your build system
+      shell: bash
+
+    - name: Compress results
+      run: |
+        tar czvf coverity-results.tgz cov-int
+      shell: bash
+
+    - name: Upload to Coverity
+      run: |
+        curl --form token=${{ inputs.token }} \
+             --form email="ci@hanaec.example.com" \
+             --form file=@coverity-results.tgz \
+             --form version="CI Build - $GITHUB_SHA" \
+             --form description="Automated build from $GITHUB_REF" \
+             --form project=${{ inputs.project }} \
+             --form stream=${{ inputs.stream }} \
+             https://scan.coverity.com/builds?project=${{ inputs.project }}
+      shell: bash
